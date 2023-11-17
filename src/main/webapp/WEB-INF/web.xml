@@ -15,4 +15,17 @@
 
 <url-pattern>/signup</url-pattern>
 </servlet-mapping>
+
+<servlet>
+<servlet-name>log</servlet-name>
+<servlet-class>sh.controller.LoginServlet</servlet-class>
+
+</servlet>
+<servlet-mapping>
+<servlet-name>log</servlet-name>
+
+<url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

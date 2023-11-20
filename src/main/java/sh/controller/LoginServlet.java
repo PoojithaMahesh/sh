@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -37,17 +38,20 @@ public class LoginServlet extends GenericServlet {
 //		remaining task i need to check the password
 		if(password.equals(studentPassword)) {
 //			login success
-			PrintWriter printWriter=res.getWriter();
-			printWriter.print("Login Success");
+			RequestDispatcher dispatcher=req.getRequestDispatcher("select.html");
+			dispatcher.forward(req, res);
+			
+			
+			
 		}else {
-			PrintWriter printWriter=res.getWriter();
-			printWriter.print("Invalid Password");
+			RequestDispatcher dispatcher=req.getRequestDispatcher("login.html");
+			dispatcher.include(req, res);
 		}
 		
 	}else {
 //		email is not present
-		PrintWriter printWriter=res.getWriter();
-		printWriter.print("Invalid Email");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("login.html");
+		dispatcher.include(req, res);
 	}
 	
 	}
